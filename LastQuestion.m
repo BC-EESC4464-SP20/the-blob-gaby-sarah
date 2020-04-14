@@ -3,7 +3,6 @@
 myFolder = 'myFolder';
 filePattern = fullfile (myFolder,'*.nc');
 theFiles = dir(filePattern);
-
 for i=1:5
 baseFileName = theFiles(i).name;
 filename=baseFileName;
@@ -37,7 +36,7 @@ theFiles(i).smooth_SST= movmean(theFiles(i).SST,theFiles(i).interval)
 
 smooth_SST_merged= ([theFiles(1).smooth_SST; theFiles(2).smooth_SST; theFiles(3).smooth_SST; theFiles(4).smooth_SST; theFiles(5).smooth_SST])
 
-plot(tt_merged,smooth_SST_merged, "r-")
+plot(tt_merged,smooth_SST_merged, "r.")
 datetick('x', 23)
 
 %% Figure Not needed for final
@@ -48,7 +47,7 @@ theFiles(i).movstd_SST= movstd(theFiles(i).SST,theFiles(i).interval)
 
 movstd_SST_merged = ([theFiles(1).movstd_SST; theFiles(2).movstd_SST; theFiles(3).movstd_SST; theFiles(4).movstd_SST; theFiles(5).movstd_SST])
 
-plot(tt_merged,movstd_SST_merged, "r-")
+plot(tt_merged,movstd_SST_merged, "r.")
 datetick('x', 23)
 %% Figure Not Needed for Final 
 % A plot of the 1-day moving mean on the same plot as the original raw data
@@ -57,7 +56,7 @@ plot(tt_merged, SST_merged)
 datetick('x', 23)
 
 hold on 
-plot(tt_merged,smooth_SST_merged, "r-")
+plot(tt_merged,smooth_SST_merged, "r.")
 datetick('x', 23)
 hold off
 %% Figure Needed for Final 
@@ -68,7 +67,7 @@ hold off
 figure (1);
 
 subplot (2,1,2)
-plot(tt_merged,movstd_SST_merged, "r-")
+plot(tt_merged,movstd_SST_merged, "r.")
 datetick('x', 23)
 
 subplot (2,1,1)
@@ -76,7 +75,7 @@ plot(tt_merged, SST_merged)
 datetick('x', 23)
 
 hold on 
-plot(tt_merged,smooth_SST_merged, "r-")
+plot(tt_merged,smooth_SST_merged, "r.")
 datetick('x', 23)
 hold off
 
@@ -108,19 +107,19 @@ cut_SST_merge=([theFiles(1).cut_off_SST; theFiles(2).cut_off_SST; theFiles(3).cu
 figure(2);
 
 subplot (2,1,2)
-plot(tt_merged,movstd_SST_merged, "b-")
+plot(tt_merged,movstd_SST_merged, "b.")
 datetick('x', 23)
 
 subplot (2,1,1)
-plot(tt_merged, SST_merged, "k-")
+plot(tt_merged, SST_merged, "k.")
 datetick('x', 23)
 
 hold on 
-plot(tt_merged,smooth_SST_merged, "m-")
+plot(tt_merged,smooth_SST_merged, "m.")
 datetick('x', 23)
 
 hold on
-plot(cut_tt_merge, cut_SST_merge, "c")
+plot(cut_tt_merge, cut_SST_merge, "c.")
 
 hold off
 end
