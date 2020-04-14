@@ -23,18 +23,18 @@ theFiles(i).tt=datenum(1900,1,1,0,0,theFiles(i).time);
 theFiles(i).diff= diff(theFiles(i).tt);
 %% Figure Not needed for final
 
-theFiles(i).diff_tt=diff(theFiles(i).tt)
-theFiles(i).interval=1/theFiles(i).diff_tt(1,1)
+theFiles(i).diff_tt=diff(theFiles(i).tt);
+theFiles(i).interval=1/theFiles(i).diff_tt(1,1);
 
-tt_merged = ([theFiles(1).tt; theFiles(2).tt; theFiles(3).tt; theFiles(4).tt; theFiles(5).tt])
-SST_merged= ([theFiles(1).SST; theFiles(2).SST; theFiles(3).SST; theFiles(4).SST; theFiles(5).SST])
+tt_merged = ([theFiles(1).tt; theFiles(2).tt; theFiles(3).tt; theFiles(4).tt; theFiles(5).tt]);
+SST_merged= ([theFiles(1).SST; theFiles(2).SST; theFiles(3).SST; theFiles(4).SST; theFiles(5).SST]);
 plot(tt_merged, SST_merged)
 datetick('x', 23)
 %% Figure Not needed for final
 
-theFiles(i).smooth_SST= movmean(theFiles(i).SST,theFiles(i).interval)
+theFiles(i).smooth_SST= movmean(theFiles(i).SST,theFiles(i).interval);
 
-smooth_SST_merged= ([theFiles(1).smooth_SST; theFiles(2).smooth_SST; theFiles(3).smooth_SST; theFiles(4).smooth_SST; theFiles(5).smooth_SST])
+smooth_SST_merged= ([theFiles(1).smooth_SST; theFiles(2).smooth_SST; theFiles(3).smooth_SST; theFiles(4).smooth_SST; theFiles(5).smooth_SST]);
 
 plot(tt_merged,smooth_SST_merged, "r.")
 datetick('x', 23)
@@ -43,9 +43,9 @@ datetick('x', 23)
 % 4b. Use the movstd function to calculate the 1-day moving standard
 % deviation of the data.
 
-theFiles(i).movstd_SST= movstd(theFiles(i).SST,theFiles(i).interval)
+theFiles(i).movstd_SST= movstd(theFiles(i).SST,theFiles(i).interval);
 
-movstd_SST_merged = ([theFiles(1).movstd_SST; theFiles(2).movstd_SST; theFiles(3).movstd_SST; theFiles(4).movstd_SST; theFiles(5).movstd_SST])
+movstd_SST_merged = ([theFiles(1).movstd_SST; theFiles(2).movstd_SST; theFiles(3).movstd_SST; theFiles(4).movstd_SST; theFiles(5).movstd_SST]);
 
 plot(tt_merged,movstd_SST_merged, "r.")
 datetick('x', 23)
@@ -92,13 +92,13 @@ hold off
 %methods section of your writeup for this lab.
 %cut off at .025 STD
 theFiles(i).cut_off=.025
-theFiles(i).new_STD= find(theFiles(i).movstd_SST<=theFiles(i).cut_off)
+theFiles(i).new_STD= find(theFiles(i).movstd_SST<=theFiles(i).cut_off);
 
-theFiles(i).cut_off_SST= theFiles(i).SST(theFiles(i).new_STD)
-theFiles(i).cut_off_tt= theFiles(i).tt(theFiles(i).new_STD)
+theFiles(i).cut_off_SST= theFiles(i).SST(theFiles(i).new_STD);
+theFiles(i).cut_off_tt= theFiles(i).tt(theFiles(i).new_STD);
 
-cut_tt_merge=([theFiles(1).cut_off_tt; theFiles(2).cut_off_tt; theFiles(3).cut_off_tt; theFiles(4).cut_off_tt; theFiles(5).cut_off_tt])
-cut_SST_merge=([theFiles(1).cut_off_SST; theFiles(2).cut_off_SST; theFiles(3).cut_off_SST; theFiles(4).cut_off_SST; theFiles(5).cut_off_SST])
+cut_tt_merge=([theFiles(1).cut_off_tt; theFiles(2).cut_off_tt; theFiles(3).cut_off_tt; theFiles(4).cut_off_tt; theFiles(5).cut_off_tt]);
+cut_SST_merge=([theFiles(1).cut_off_SST; theFiles(2).cut_off_SST; theFiles(3).cut_off_SST; theFiles(4).cut_off_SST; theFiles(5).cut_off_SST]);
 %% Needed for final
 %6c. Update your figure from #5 to add the non-excluded data as a separate
 %plotted set of points (i.e. in a new color) along with the other data you

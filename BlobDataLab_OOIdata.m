@@ -33,7 +33,7 @@ tt=datenum(1900,1,1,0,0,time);
 % Checking your work: Use the "datestr" function to check that your
 % converted times match the time range listed in the netCDF file's
 % attributes for time coverage
-datestr(tt(1:5))
+datestr(tt(1:5));
 
 % 2b. Calculate the time resolution of the data (i.e. long from one
 % measurement to the next) in minutes. Hint: the "diff" function will be
@@ -59,10 +59,10 @@ datetick('x', 23)
 % size to use in the calculation.
 
 
-diff_tt=diff(tt)
-interval=1/diff_tt(1,1)
+diff_tt=diff(tt);
+interval=1/diff_tt(1,1);
 
-smooth_SST= movmean(SST,interval)
+smooth_SST= movmean(SST,interval);
 
 plot(tt,smooth_SST, "r-")
 datetick('x', 23)
