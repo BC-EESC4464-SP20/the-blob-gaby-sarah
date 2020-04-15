@@ -6,8 +6,8 @@ ncdisp(filename)
 
 %1b. Use the function "ncreadatt" to extract the latitude and longitude attributes of this dataset
 %ncreadatt (filename)
-lat = ncreadatt(filename,'/','lat');
-lon = ncreadatt(filename,'/','lon');
+lat_moor = ncreadatt(filename,'/','lat');
+lon_moor = ncreadatt(filename,'/','lon');
 
 %1c. Use the function "ncread" to extract the variables "time" and
 %"ctdmo_seawater_temperature"
