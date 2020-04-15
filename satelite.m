@@ -4,11 +4,10 @@ ncdisp(filename)
 lat_sat = ncread(filename,'latitude');
 lon_sat = ncread(filename,'longitude');
 %%
-time = ncread(filename,'time');
-tt=datenum(1970,1,1,0,0,time);
-diff_tt=diff(tt)
+time_sat = ncread(filename,'time');
+tt_sat=datenum(1970,1,1,0,0,time_sat);
+diff_tt_sat=diff(tt_sat)
 %%
-sstAnom = ncread(filename,'sstAnom');
+sstAnom_sat = ncread(filename,'sstAnom');
 %%
-imagesc(sstAnom(:,:,86))
-%
+imagesc(sstAnom_sat(:,:,86))

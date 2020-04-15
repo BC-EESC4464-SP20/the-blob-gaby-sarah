@@ -1,0 +1,30 @@
+filename = 'jplMURSST41anommday_b7e9_0580_070c.nc';
+ncdisp(filename)
+%%
+lat_sat = ncread(filename,'latitude');
+lon_sat = ncread(filename,'longitude');
+%%
+time = ncread(filename,'time');
+tt=datenum(1970,1,1,0,0,time);
+diff_tt=diff(tt)
+%%
+sstAnom = ncread(filename,'sstAnom');
+%%
+imagesc(sstAnom(:,:,86))
+%%
+%% 5. Now bring in the satellite data observed at Ocean Station Papa
+
+%5a. Convert satellite time to MATLAB timestamp (following the same approach
+%as in Part 1 step 2, where you will need to check the units on the satellite data
+%timestamp and use the datenum function to make the conversion)
+time = ncread(filename,'time');
+tt=datenum(1970,1,1,0,0,time);
+diff_tt=diff(tt)
+datestr(tt(1:5))
+
+%5b. In order to extract the satellite SSTanom data from the grid cell
+%nearest to OSP, calculate the indices of the longitude and latitude in the
+%satellite data grid nearest to the latitude and longitude of Ocean Station
+%Papa (as you did for the WOA data in Step 1 above)
+% -->
+% -->
