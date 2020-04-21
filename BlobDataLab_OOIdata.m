@@ -14,11 +14,6 @@ lon_moor = ncreadatt(filename,'/','lon');
 time = ncread(filename,'time');
 SST = ncread(filename,'ctdmo_seawater_temperature');
 
-% ncid= netcdf.open(filename, 'NC_NOWRITE');
-% [numdims, numvars, numglobalatts,unlimdimID]= netcdf.inq(ncid);
-% tt= netcdf.getVar(ncid, netcdf.inqVarID(ncid, 'time'));
-% SL= netcdf.getVar(ncid, netcdf.inqVarID(ncid, 'zostoga'));
-
 % Extension option: Also extract the variable "pressure" (which, due to the
 % increasing pressure underwater, tells us about depth - 1 dbar ~ 1 m
 % depth). How deep in the water column was this sensor deployed?
